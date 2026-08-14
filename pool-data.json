@@ -1,0 +1,10 @@
+{
+  "pool_id": "pool1peayemzlkmcwn64c455mx8sxdaztq0xuv9hdxlp0kcsxz57up3z",
+  "block_count": 812,
+  "fixed_cost": 340000000,
+  "margin": 0.01,
+  "live_stake": 1600000000000,
+  "live_delegators": 40,
+  "updated_at": null,
+  "source": "fallback"
+}

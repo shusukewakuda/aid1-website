@@ -200,17 +200,15 @@
     <small>© 2026 AID1</small>
   </footer>
 
-  <script>
+  
+
+<script>
 (function(){
-  const poolId = "pool1peayemzlkmcwn64c455mx8sxdaztq0xuv9hdxlp0kcsxz57up3z";
-  const endpoint = "https://api.koios.rest/api/v1/pool_info";
   const status = document.getElementById("pool-data-status");
 
   const setText = (id, value) => {
     const el = document.getElementById(id);
-    if (el && value !== undefined && value !== null && value !== "") {
-      el.textContent = value;
-    }
+    if (el && value !== undefined && value !== null && value !== "") el.textContent = value;
   };
 
   const lovelaceToAda = value => {
@@ -221,74 +219,33 @@
     return Math.round(n).toLocaleString("ja-JP") + " ADA";
   };
 
-  async function refreshPoolData(){
-    // Local file preview: avoid a known CORS failure from origin "null".
-    if (window.location.protocol === "file:") {
-      if (status) status.textContent = "（ローカル表示では直近値を表示）";
-      return;
-    }
-
+  async function loadPoolData(){
     try{
-      if (status) status.textContent = "（更新中…）";
-
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          "_pool_bech32_ids": [poolId]
-        }),
-        cache: "no-store"
-      });
-
+      if (status) status.textContent = "（更新データを確認中…）";
+      const response = await fetch("pool-data.json?ts=" + Date.now(), {cache:"no-store"});
       if (!response.ok) throw new Error("HTTP " + response.status);
-
-      const rows = await response.json();
-      const d = Array.isArray(rows) ? rows[0] : null;
-      if (!d) throw new Error("No pool data");
+      const d = await response.json();
 
       setText("metric-blocks", d.block_count);
-
-      if (d.fixed_cost != null) {
-        setText("metric-fixed-cost", lovelaceToAda(d.fixed_cost));
-      }
-      if (d.margin != null) {
-        setText(
-          "metric-margin",
-          (Number(d.margin) * 100).toFixed(2).replace(/\.?0+$/,"") + "%"
-        );
-      }
-      if (d.live_stake != null) {
-        setText("metric-live-stake", lovelaceToAda(d.live_stake));
-      }
-      if (d.live_delegators != null) {
-        setText("metric-delegators", d.live_delegators);
-      }
+      if (d.fixed_cost != null) setText("metric-fixed-cost", lovelaceToAda(d.fixed_cost));
+      if (d.margin != null) setText("metric-margin", (Number(d.margin)*100).toFixed(2).replace(/\.?0+$/,"") + "%");
+      if (d.live_stake != null) setText("metric-live-stake", lovelaceToAda(d.live_stake));
+      if (d.live_delegators != null) setText("metric-delegators", d.live_delegators);
 
       if (status) {
-        const now = new Date();
-        status.textContent =
-          "（自動更新 " +
-          now.toLocaleString("ja-JP", {hour:"2-digit", minute:"2-digit"}) +
-          "）";
+        if (d.updated_at) {
+          status.textContent = "（自動更新 " + new Date(d.updated_at).toLocaleString("ja-JP") + "）";
+        } else {
+          status.textContent = "（直近値を表示）";
+        }
       }
-    } catch (error) {
-      if (status) {
-        status.textContent = "（自動取得できないため直近値を表示）";
-      }
+    } catch (e) {
+      if (status) status.textContent = "（直近値を表示）";
     }
   }
 
-  refreshPoolData();
-
-  // Only schedule repeated updates when served over http/https.
-  if (window.location.protocol === "http:" || window.location.protocol === "https:") {
-    setInterval(refreshPoolData, 30 * 60 * 1000);
-  }
+  loadPoolData();
 })();
 </script>
-
 </body>
 </html>

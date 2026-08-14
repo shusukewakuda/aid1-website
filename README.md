@@ -143,3 +143,10 @@
 - http/https公開環境ではKoios APIを試行
 - Koios取得に失敗した場合は直近値を維持
 - 公開後にHTTPS環境でKoiosのCORS挙動を最終確認する前提
+
+## Version 5.4
+- ブラウザからKoiosへ直接アクセスする方式を廃止してCORS問題を回避
+- GitHub Actionsが1時間ごとにKoiosのpool_infoを取得
+- 取得結果をpool-data.jsonへ生成
+- Stake Poolページは同一ドメインのpool-data.jsonを読み込む
+- mainへのpush・毎時実行・手動実行でPagesを再デプロイ
