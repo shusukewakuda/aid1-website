@@ -58,9 +58,9 @@
         <div class="stats-grid">
           <div><span>Cardano活動開始</span><strong>2019</strong></div>
           <div><span>Stake Pool開始</span><strong>2021</strong></div>
-          <div><span>生成ブロック</span><strong>812</strong></div>
-          <div><span>委任量（ADA）</span><strong>1.6M</strong></div>
-          <div><span>委任者</span><strong>40</strong></div>
+          <div><span>生成ブロック</span><strong id="home-metric-blocks">812</strong></div>
+          <div><span>委任量（ADA）</span><strong id="home-metric-live-stake">1.6M</strong></div>
+          <div><span>委任者</span><strong id="home-metric-delegators">40</strong></div>
           <div><span>運営年数</span><strong>5+</strong></div>
         </div>
       </aside>
@@ -318,5 +318,48 @@
       <li><time>2026.08.01</time><span>AID1 Website Projectを開始</span></li>
     </ol>
   </dialog>
+<script>
+(function(){
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el && value !== undefined && value !== null && value !== "") {
+      el.textContent = value;
+    }
+  };
+
+  const lovelaceToAdaShort = value => {
+    const n = Number(value) / 1000000;
+    if (!Number.isFinite(n)) return null;
+    if (n >= 1000000) {
+      return (n / 1000000).toFixed(2).replace(/\.?0+$/,"") + "M";
+    }
+    if (n >= 1000) {
+      return (n / 1000).toFixed(1).replace(/\.0$/,"") + "K";
+    }
+    return Math.round(n).toLocaleString("ja-JP");
+  };
+
+  async function loadHomePoolData(){
+    try{
+      const response = await fetch("pool-data.json?ts=" + Date.now(), {cache:"no-store"});
+      if (!response.ok) throw new Error("HTTP " + response.status);
+
+      const d = await response.json();
+
+      setText("home-metric-blocks", d.block_count);
+      if (d.live_stake != null) {
+        setText("home-metric-live-stake", lovelaceToAdaShort(d.live_stake));
+      }
+      if (d.live_delegators != null) {
+        setText("home-metric-delegators", d.live_delegators);
+      }
+    } catch (e) {
+      // Keep the static fallback values already written in index.html.
+    }
+  }
+
+  loadHomePoolData();
+})();
+</script>
 </body>
 </html>

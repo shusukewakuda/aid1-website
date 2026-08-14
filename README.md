@@ -150,3 +150,8 @@
 - 取得結果をpool-data.jsonへ生成
 - Stake Poolページは同一ドメインのpool-data.jsonを読み込む
 - mainへのpush・毎時実行・手動実行でPagesを再デプロイ
+
+## Version 5.5
+- HOMEの「生成ブロック」「委任量」「委任者数」をpool-data.jsonと接続
+- Stake Poolページと同じGitHub Actions / Koios由来の最新データをHOMEにも表示
+- JSON取得失敗時はHTML内の直近値をフォールバック表示
