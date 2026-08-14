@@ -1,0 +1,82 @@
+name: Update pool data and deploy Pages
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch AID1 pool data from Koios
+        shell: bash
+        run: |
+          set -euo pipefail
+          POOL_ID="pool1peayemzlkmcwn64c455mx8sxdaztq0xuv9hdxlp0kcsxz57up3z"
+          RESPONSE="$(curl --fail --silent --show-error \
+            -X POST "https://api.koios.rest/api/v1/pool_info" \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            --data "{\"_pool_bech32_ids\":[\"${POOL_ID}\"]}")"
+          export RESPONSE
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+
+          rows = json.loads(os.environ["RESPONSE"])
+          if not isinstance(rows, list) or not rows:
+              raise SystemExit("Koios returned no pool data")
+          d = rows[0]
+
+          out = {
+              "pool_id": d.get("pool_id_bech32") or d.get("pool_id"),
+              "block_count": d.get("block_count"),
+              "fixed_cost": d.get("fixed_cost"),
+              "margin": d.get("margin"),
+              "live_stake": d.get("live_stake"),
+              "live_delegators": d.get("live_delegators"),
+              "updated_at": datetime.now(timezone.utc).isoformat(),
+              "source": "koios"
+          }
+          required = ["block_count","fixed_cost","margin","live_stake","live_delegators"]
+          missing = [k for k in required if out[k] is None]
+          if missing:
+              raise SystemExit(f"Koios response missing fields: {missing}")
+
+          with open("pool-data.json","w",encoding="utf-8") as f:
+              json.dump(out,f,ensure_ascii=False,indent=2)
+          PY
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
