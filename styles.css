@@ -2145,3 +2145,66 @@ img[src$="constitution-vote-2024-original.jpeg"] {
     padding:28px 30px !important;
   }
 }
+
+
+/* ===== Version 5.7 corrections ===== */
+
+/* "憲法委員とは？" — use the wider, calmer card layout shown in the reference */
+.governance-role .governance-role-grid{
+  width:min(var(--max), calc(100% - 64px)) !important;
+  max-width:var(--max) !important;
+  margin:0 auto !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:24px !important;
+  align-items:stretch !important;
+}
+.governance-role .governance-role-card{
+  width:100% !important;
+  min-height:300px !important;
+  aspect-ratio:auto !important;
+  padding:44px 40px !important;
+  border-radius:0 !important;
+  border-top:4px solid var(--blue) !important;
+  background:#fff !important;
+  color:var(--ink) !important;
+  box-shadow:var(--shadow) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  align-items:flex-start !important;
+  text-align:left !important;
+}
+.governance-role .governance-role-card span{
+  color:var(--blue) !important;
+  font-weight:800 !important;
+}
+.governance-role .governance-role-card h3{
+  margin:26px 0 18px !important;
+  font-size:1.28rem !important;
+  line-height:1.45 !important;
+}
+.governance-role .governance-role-card p{
+  margin:0 !important;
+  color:var(--muted) !important;
+  line-height:1.8 !important;
+  font-size:1rem !important;
+}
+@media(max-width:900px){
+  .governance-role .governance-role-grid{
+    grid-template-columns:1fr !important;
+    width:min(92vw,720px) !important;
+  }
+  .governance-role .governance-role-card{
+    min-height:0 !important;
+    padding:30px !important;
+  }
+}
+
+/* HOME hero CTAs — make both buttons use the same outlined style */
+.hero-actions .button{
+  border:1px solid rgba(255,255,255,.55) !important;
+  color:#fff !important;
+  background:rgba(255,255,255,.03) !important;
+  box-shadow:none !important;
+}
