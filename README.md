@@ -155,3 +155,11 @@
 - HOMEの「生成ブロック」「委任量」「委任者数」をpool-data.jsonと接続
 - Stake Poolページと同じGitHub Actions / Koios由来の最新データをHOMEにも表示
 - JSON取得失敗時はHTML内の直近値をフォールバック表示
+
+
+## Version 5.6
+- Governance冒頭の「AID1の運営者」を「AID1」に変更
+- 「憲法委員とは？」の3カードを正方形〜少し横長に調整
+- Homeの更新記録を2026.08.14「ウェブサイトを一新して公開しました」に整理
+- Homeの重複するStake Pool数値セクションを削除し、冒頭に「Stake Poolを見る」を追加
+- Constitutional Committee活動写真を指定画像へ差し替え

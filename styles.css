@@ -2134,3 +2134,14 @@ img[src$="constitution-vote-2024-original.jpeg"] {
     min-height:210px !important;
   }
 }
+
+
+/* ===== Version 5.6 ===== */
+/* Governance: calm near-square / slightly landscape cards */
+@media(min-width:760px){
+  .governance-role .governance-role-card{
+    min-height:0 !important;
+    aspect-ratio:1.15 / 1 !important;
+    padding:28px 30px !important;
+  }
+}
