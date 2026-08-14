@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stake Pool | AID1</title>
+  <meta name="description" content="AID1 Stake Poolの運営情報、実績、手数料、委任方法を掲載しています。">
+  <meta name="theme-color" content="#06162f">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="stake-page">
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header scrolled">
+    <a class="brand" href="index.html" aria-label="AID1 ホーム">
+      <span class="brand-name">AID1</span>
+      <span class="brand-tagline">Supporting Cardano Since 2019</span>
+    </a>
+    <button class="menu-button" type="button" aria-label="メニューを開く"
+            aria-expanded="false" aria-controls="global-nav" data-menu-button>
+      <span></span><span></span><span></span>
+    </button>
+        <nav class="global-nav" id="global-nav" aria-label="メインナビゲーション" data-nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#mission">Mission</a>
+      <a href="journey.html">Journey</a>
+      <a href="governance.html">Governance</a>
+      <a href="stake-pool.html" aria-current="page">Stake Pool</a>
+      <a href="index.html#latest">Latest</a>
+      <a href="about.html">About</a>
+      <a class="nav-button" href="index.html#delegate">委任する</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="subhero">
+      <div class="subhero-inner">
+        <p class="overline">AID1 Stake Pool</p>
+        <h1>安定した運営を、<br>これからも。</h1>
+        <p>
+          AID1は2021年6月1日からCardano Stake Poolを運営しています。
+          ブロック生成を通じてネットワークを支えながら、
+          情報発信、コミュニティ活動、ガバナンスにも積極的に参加しています。
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#delegate">委任方法を見る</a>
+        </div>
+      </div>
+      <div class="subhero-badge">
+        <img src="assets/pool-5years-2026.jpg" alt="AID1 Stake Pool 5周年">
+      </div>
+    </section>
+
+    <section class="section pool-overview">
+      <div class="section-heading">
+        <p class="overline overline-blue">Pool overview</p>
+        <h2>AID1の現在</h2>
+        <p class="live-data-note"><span class="live-dot"></span>ブロックチェーンの公開データから自動更新します。<span id="pool-data-status">取得中…</span></p>
+      </div>
+
+      <div class="pool-metrics pool-metrics-detail">
+        <div><span>運営開始</span><strong>2021年6月1日</strong></div>
+        <div><span>総ブロック数</span><strong id="metric-blocks">812</strong></div>
+        <div><span>固定手数料</span><strong id="metric-fixed-cost">340 ADA</strong></div>
+        <div><span>変動手数料</span><strong id="metric-margin">1%</strong></div>
+        <div><span>委任量</span><strong id="metric-live-stake">1.6M ADA</strong></div>
+        <div><span>委任者数</span><strong id="metric-delegators">40</strong></div>
+      </div>
+
+      <div class="pool-identity reveal">
+        <div>
+          <span>Ticker</span>
+          <strong>AID1</strong>
+        </div>
+        <div>
+          <span>Pool ID</span>
+          <code>0e7a4cec5fb6f0e9eab8ad29b31e066f44b03cdc616ed37c2fb62061</code>
+        </div>
+      </div>
+    </section>
+
+
+    
+
+    <section class="section pool-philosophy">
+      <div class="section-heading">
+        <p class="overline">Why delegate</p>
+        <h2>委任が支えるもの</h2>
+      </div>
+
+      <div class="support-grid">
+        <article>
+          <span>01</span>
+          <h3>ネットワーク運営</h3>
+          <p>Cardanoネットワークの分散化に参加し、長期的な運営を続けます。</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>日本語での情報発信</h3>
+          <p>YouTubeやXを通じて、Cardanoの動きや学んだ内容を共有します。</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>コミュニティ活動</h3>
+          <p>イベントや交流を通じて、日本でCardanoを知る機会を増やします。</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>ガバナンスへの参加</h3>
+          <p>Cardanoガバナンスに参加し、制度や提案を分かりやすく伝えます。</p>
+        </article>
+      </div>
+    </section>
+
+<section class="section guild-section">
+      <div class="guild-card reveal">
+        <a class="guild-logo-link"
+           href="https://spojapanguild.net/"
+           target="_blank"
+           rel="noopener"
+           aria-label="SPOジャパンギルドのウェブサイトを開く">
+          <img src="assets/spo-japan-guild.jpg" alt="Cardano Community SPO Japan Guild">
+        </a>
+
+        <div class="guild-copy">
+          <p class="overline overline-blue">Community</p>
+          <h2>SPOジャパンギルドの一員です</h2>
+          <p>SPOジャパンギルドに参加し、アドバイスを受けています。</p>
+          <a class="guild-site-link"
+             href="https://spojapanguild.net/"
+             target="_blank"
+             rel="noopener">
+            SPOジャパンギルドを見る ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="section explorer-section">
+      <div class="section-heading">
+        <p class="overline overline-blue">Verify independently</p>
+        <h2>外部サイトで確認できます。</h2>
+        <p>AID1のブロック生成実績や委任状況は、Cardanoのエクスプローラーで確認できます。</p>
+      </div>
+
+      <div class="explorer-grid">
+        <a href="https://pool.pm/pool1peayemzlkmcwn64c455mx8sxdaztq0xuv9hdxlp0kcsxz57up3z" target="_blank" rel="noopener">
+          <strong>Pool.pm</strong><span>プール情報を見る ↗</span>
+        </a>
+        <a href="https://cexplorer.io/pool/pool1peayemzlkmcwn64c455mx8sxdaztq0xuv9hdxlp0kcsxz57up3z" target="_blank" rel="noopener">
+          <strong>CExplorer</strong><span>実績を確認する ↗</span>
+        </a>
+        <a href="https://adastat.net/pools/0e7a4cec5fb6f0e9eab8ad29b31e066f44b03cdc616ed37c2fb62061" target="_blank" rel="noopener">
+          <strong>ADAStat</strong><span>プール情報を見る ↗</span>
+        </a>
+      </div>
+    </section>
+
+    
+
+    <section class="section delegate" id="delegate">
+      <div class="delegate-inner">
+        <div>
+          <p class="overline">Delegate to AID1</p>
+          <h2>AID1へ委任する</h2>
+          <p>
+            対応ウォレットのStake Pool検索で、Ticker「AID1」を検索してください。
+            ご不明な点がございましたら、CONTACTボタンからお気軽にご連絡ください。できるだけ早くご回答いたします。
+          </p>
+        </div>
+        <div class="delegate-details">
+          <dl>
+            <div><dt>Ticker</dt><dd>AID1</dd></div>
+            <div><dt>Pool ID</dt><dd>0e7a4cec5fb6f0e9eab8ad29b31e066f44b03cdc616ed37c2fb62061</dd></div>
+          </dl>
+          <div class="delegate-actions">
+          <a class="button button-outline" href="https://docs.google.com/forms/d/1nCyrLJKJ9_V_k_ci-O0uqZuv5RLk3QEMDrqTCii9G8w/edit" target="_blank" rel="noopener">
+            CONTACT ↗
+          </a>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <strong>AID1</strong>
+      <span>Supporting Cardano Since 2019</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="https://x.com/shuwaku2" target="_blank" rel="noopener">X ↗</a>
+      <a href="https://www.youtube.com/channel/UC-I6QtYNZDnPlsbpNulwnJg" target="_blank" rel="noopener">YouTube ↗</a>
+      <a href="https://docs.google.com/forms/d/1nCyrLJKJ9_V_k_ci-O0uqZuv5RLk3QEMDrqTCii9G8w/edit" target="_blank" rel="noopener">Contact ↗</a>
+    </div>
+    <small>© 2026 AID1</small>
+  </footer>
+
+  <script>
+(function(){
+  const poolId = "pool1peayemzlkmcwn64c455mx8sxdaztq0xuv9hdxlp0kcsxz57up3z";
+  const endpoint = "https://api.koios.rest/api/v1/pool_info";
+  const status = document.getElementById("pool-data-status");
+
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el && value !== undefined && value !== null && value !== "") {
+      el.textContent = value;
+    }
+  };
+
+  const lovelaceToAda = value => {
+    const n = Number(value) / 1000000;
+    if (!Number.isFinite(n)) return null;
+    if (n >= 1000000) return (n / 1000000).toFixed(2).replace(/\.?0+$/,"") + "M ADA";
+    if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/,"") + "K ADA";
+    return Math.round(n).toLocaleString("ja-JP") + " ADA";
+  };
+
+  async function refreshPoolData(){
+    // Local file preview: avoid a known CORS failure from origin "null".
+    if (window.location.protocol === "file:") {
+      if (status) status.textContent = "（ローカル表示では直近値を表示）";
+      return;
+    }
+
+    try{
+      if (status) status.textContent = "（更新中…）";
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "_pool_bech32_ids": [poolId]
+        }),
+        cache: "no-store"
+      });
+
+      if (!response.ok) throw new Error("HTTP " + response.status);
+
+      const rows = await response.json();
+      const d = Array.isArray(rows) ? rows[0] : null;
+      if (!d) throw new Error("No pool data");
+
+      setText("metric-blocks", d.block_count);
+
+      if (d.fixed_cost != null) {
+        setText("metric-fixed-cost", lovelaceToAda(d.fixed_cost));
+      }
+      if (d.margin != null) {
+        setText(
+          "metric-margin",
+          (Number(d.margin) * 100).toFixed(2).replace(/\.?0+$/,"") + "%"
+        );
+      }
+      if (d.live_stake != null) {
+        setText("metric-live-stake", lovelaceToAda(d.live_stake));
+      }
+      if (d.live_delegators != null) {
+        setText("metric-delegators", d.live_delegators);
+      }
+
+      if (status) {
+        const now = new Date();
+        status.textContent =
+          "（自動更新 " +
+          now.toLocaleString("ja-JP", {hour:"2-digit", minute:"2-digit"}) +
+          "）";
+      }
+    } catch (error) {
+      if (status) {
+        status.textContent = "（自動取得できないため直近値を表示）";
+      }
+    }
+  }
+
+  refreshPoolData();
+
+  // Only schedule repeated updates when served over http/https.
+  if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+    setInterval(refreshPoolData, 30 * 60 * 1000);
+  }
+})();
+</script>
+
+</body>
+</html>
