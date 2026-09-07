@@ -2045,6 +2045,25 @@ img[src$="constitution-vote-2024-original.jpeg"] {
   font-size:clamp(2rem,3.4vw,3.2rem);
 }
 
+
+/* DRep Selection Tool */
+.drep-tool-card{
+  min-height:180px;
+}
+
+.drep-tool-card h3{
+  margin:12px 0 12px;
+}
+
+.drep-tool-card p{
+  margin:0 0 14px;
+}
+
+.drep-tool-card strong{
+  margin-top:0;
+}
+
+
 /* ===== Version 4.8 ===== */
 
 /* Top governance voting bodies: blue cards */
