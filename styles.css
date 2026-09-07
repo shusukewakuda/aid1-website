@@ -196,7 +196,7 @@ button{font:inherit}
 .update-list{width:min(var(--max),100%);margin:0 auto;border-top:1px solid var(--line)}
 .update-item{
   display:grid;grid-template-columns:160px 1fr;gap:30px;
-  align-items:center;padding:27px 0;border-bottom:1px solid var(--line);
+  align-items:center;padding:14px 0;border-bottom:1px solid var(--line);
 }
 .update-item time{font-weight:700;color:#6a788a}
 .update-item span{font-size:.72rem;color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.12em}
