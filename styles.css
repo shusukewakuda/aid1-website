@@ -2051,18 +2051,20 @@ img[src$="constitution-vote-2024-original.jpeg"] {
   height:240px !important;
   box-sizing:border-box;
   align-self:start;
+  padding:22px 26px !important;
 }
 
 .drep-tool-card h3{
-  margin:12px 0 12px;
+  margin:8px 0 10px !important;
 }
 
 .drep-tool-card p{
-  margin:0 0 14px;
+  margin:0 0 10px !important;
+  line-height:1.5 !important;
 }
 
 .drep-tool-card strong{
-  margin-top:0;
+  margin-top:auto !important;
 }
 
 
