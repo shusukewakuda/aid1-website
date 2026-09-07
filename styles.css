@@ -2047,8 +2047,8 @@ img[src$="constitution-vote-2024-original.jpeg"] {
 
 /* DRep Selection Tool */
 .drep-tool-card{
-  min-height:240px !important;
-  height:240px !important;
+  min-height:280px !important;
+  height:280px !important;
   box-sizing:border-box;
   align-self:start;
   padding:22px 26px !important;
