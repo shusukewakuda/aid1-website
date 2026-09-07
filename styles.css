@@ -2045,28 +2045,6 @@ img[src$="constitution-vote-2024-original.jpeg"] {
   font-size:clamp(2rem,3.4vw,3.2rem);
 }
 
-/* DRep Selection Tool */
-.drep-tool-card{
-  display:block !important;
-  min-height:0 !important;
-  height:auto !important;
-  align-self:start;
-  padding:26px !important;
-}
-
-.drep-tool-card h3{
-  margin:12px 0 18px !important;
-}
-
-.drep-tool-card p{
-  margin:0 0 18px !important;
-}
-
-.drep-tool-card strong{
-  display:block;
-  margin-top:0 !important;
-}
-
 
 /* ===== Version 4.8 ===== */
 
