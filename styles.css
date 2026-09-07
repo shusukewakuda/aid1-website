@@ -2047,24 +2047,24 @@ img[src$="constitution-vote-2024-original.jpeg"] {
 
 /* DRep Selection Tool */
 .drep-tool-card{
-  min-height:280px !important;
-  height:280px !important;
-  box-sizing:border-box;
+  display:block !important;
+  min-height:0 !important;
+  height:auto !important;
   align-self:start;
-  padding:22px 26px !important;
+  padding:26px !important;
 }
 
 .drep-tool-card h3{
-  margin:8px 0 10px !important;
+  margin:12px 0 18px !important;
 }
 
 .drep-tool-card p{
-  margin:0 0 10px !important;
-  line-height:1.5 !important;
+  margin:0 0 18px !important;
 }
 
 .drep-tool-card strong{
-  margin-top:auto !important;
+  display:block;
+  margin-top:0 !important;
 }
 
 
